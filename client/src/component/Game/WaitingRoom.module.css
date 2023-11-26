@@ -1,0 +1,17 @@
+.waiting-room {
+  display: flex;
+  flex-direction: column;
+}
+
+.waiting-people {
+  display: flex;
+}
+
+.waiting-person {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+  max-width: 23vw;
+}
