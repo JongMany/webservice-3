@@ -10,15 +10,16 @@ interface Props {
   myOutput: number;
   setMyOutput: React.Dispatch<React.SetStateAction<number>>;
   myTurn: boolean;
+  setMyTurn: React.Dispatch<React.SetStateAction<boolean>>;
   myResults: number[];
-  totalHp: number
+  totalHp: number;
 }
 
 export default function PowerGauge({
   setMyOutput,
   myTurn,
   myResults,
-  totalHp
+  totalHp,
 }: Props) {
   const sliderContainerRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ export default function PowerGauge({
     );
     setMyOutput(value);
     socket.emit('attack', { value, id, roomId });
-    if(totalHp - value <= 0) {
+    if (totalHp - value <= 0) {
       if (myTurn) {
         socket.emit('finish', {
           roomId,
@@ -52,6 +53,8 @@ export default function PowerGauge({
           attack: value,
         });
       }
+    } else {
+      setMyTurn(false);
     }
   };
 
@@ -94,7 +97,7 @@ export default function PowerGauge({
       clearInterval(id);
     };
   }, [speed]);
-  
+
   return (
     <section>
       {myTurn && <Timer />}
@@ -107,8 +110,9 @@ export default function PowerGauge({
       </button>
       <div>0은 제외한 점수</div>
       <ul className={styles['output']}>
-
-        {myResults.map(result => <li>{result}</li>)}
+        {myResults.map((result) => (
+          <li>{result}</li>
+        ))}
       </ul>
     </section>
   );

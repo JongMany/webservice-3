@@ -93,6 +93,7 @@ export default function Game({ myTurn, setMyTurn }: Props) {
         myTurn={myTurn}
         myResults={myResults}
         totalHp={totalHp}
+        setMyTurn={setMyTurn}
       />
       <div>
         <Videos />
