@@ -18,6 +18,7 @@ interface Props {
 export default function PowerGauge({
   setMyOutput,
   myTurn,
+  setMyTurn,
   myResults,
   totalHp,
 }: Props) {
