@@ -15,6 +15,7 @@ export default function GameRoom() {
   const [ready, setReady] = useState(false);
   const [allReady, setAllReady] = useState(false);
   const { socket } = useSocket();
+  
   const location = useLocation();
   const { id } = useAuthStore();
   const roomId = location.pathname.split('/')[2];

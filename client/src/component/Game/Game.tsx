@@ -35,8 +35,8 @@ export default function Game({ myTurn, setMyTurn }: Props) {
     //   });
     //   navigate('/results')
     // }
-    setTotalHp((prev) => prev - myOutput);
-    setMyOutput(0);
+    // setTotalHp(totalHp - myOutput);
+    // setMyOutput(0);
   }, [myOutput, myTurn]);
 
   useEffect(() => {
@@ -92,6 +92,7 @@ export default function Game({ myTurn, setMyTurn }: Props) {
         setMyOutput={setMyOutput}
         myTurn={myTurn}
         myResults={myResults}
+        setTotalHp={setTotalHp}
         totalHp={totalHp}
         setMyTurn={setMyTurn}
       />

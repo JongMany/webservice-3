@@ -9,6 +9,7 @@ import Timer from './Timer';
 interface Props {
   myOutput: number;
   setMyOutput: React.Dispatch<React.SetStateAction<number>>;
+  setTotalHp: React.Dispatch<React.SetStateAction<number>>;
   myTurn: boolean;
   setMyTurn: React.Dispatch<React.SetStateAction<boolean>>;
   myResults: number[];
@@ -21,6 +22,7 @@ export default function PowerGauge({
   setMyTurn,
   myResults,
   totalHp,
+  setTotalHp,
 }: Props) {
   const sliderContainerRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -46,6 +48,7 @@ export default function PowerGauge({
     );
     setMyOutput(value);
     socket.emit('attack', { value, id, roomId });
+    setTotalHp(totalHp - value);
     if (totalHp - value <= 0) {
       if (myTurn) {
         socket.emit('finish', {

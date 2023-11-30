@@ -46,7 +46,7 @@ export default function WaitingRoom({
     // TODO: 나중에 조건 변경
     // if (others.length < 3) {
     if (others.length < 1) {
-      alert('4명이 들어온 경우에만 준비완료 버튼을 누를 수 있습니다.');
+      alert('2명이 들어온 경우에만 준비완료 버튼을 누를 수 있습니다.');
       return;
     }
     setReady(!ready);

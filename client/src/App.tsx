@@ -11,11 +11,13 @@ import GameRoom from './pages/GameRoom';
 import Results from './pages/Results';
 import { useEffect } from 'react';
 import useAuthStore from './store/authStore';
+import { initSocket } from './api/socket/socket';
 
 function App() {
   const token = localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : sessionStorage.getItem('accessToken');
   const navigate = useNavigate();
   const {isLogin} = useAuthStore();
+  initSocket();
   
   useEffect(()=>{
     if(!token) {
