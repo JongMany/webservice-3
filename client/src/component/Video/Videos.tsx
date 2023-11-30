@@ -120,6 +120,7 @@ export default function Video() {
     return () => {
       if (pcRef.current) {
         pcRef.current.close();
+        window.location.reload();
       }
     };
   }, []);
