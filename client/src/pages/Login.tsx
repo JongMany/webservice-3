@@ -52,6 +52,7 @@ export default function Login() {
         />
         <Input
           onChange={onChange}
+          type='password'
           id={'password'}
           name={'password'}
           value={form['password']}
